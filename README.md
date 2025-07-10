@@ -11,11 +11,11 @@ Installation:
 
 1. Clone this repository - $: git clone https://github.com/yrgo28/paccino
 
-2. Edit your shell rc file - $: (if you use bash) sudo <text-editor(nano, vim, etc)> $HOME/.bashrc (In zshell cases, change ".bashrc" to ".zshrc") eg: sudo nano .bashrc
+2. Edit your shell rc file - (if you use bash) sudo <text-editor(nano, vim, etc)> $HOME/.bashrc (In zshell cases, change ".bashrc" to ".zshrc") eg $: sudo nano .bashrc
 
-3. Type in rc file: export $PACCINO_PATH=directory-was-you-cloned-this eg: export $PACCINO_PATH=$HOME/paccino
+3. Type in rc file: export PACCINO_PATH=directory-was-you-cloned-this eg $: export PACCINO_PATH=$HOME/paccino
 
-4. Make an alias for paccino - RCFILE: alias paccino='python3 $PACCINO_PATH/main.py'
+4. Make an alias for paccino - RCFILE $: alias paccino='python3 $PACCINO_PATH/main.py'
 
 5. Save changes and restart your terminal
 
