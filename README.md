@@ -13,7 +13,7 @@ Installation:
 
 2. Edit your shell rc file - $: (if you use bash) sudo <text-editor(nano, vim, etc)> $HOME/.bashrc (In zshell cases, change ".bashrc" to ".zshrc") eg: sudo nano .bashrc
 
-3. Type: export $PACCINO_PATH=directory-was-you-cloned-this eg: export $PACCINO_PATH=$HOME/paccino
+3. Type in rc file: export $PACCINO_PATH=directory-was-you-cloned-this eg: export $PACCINO_PATH=$HOME/paccino
 
 4. Make an alias for paccino - RCFILE: alias paccino='python3 $PACCINO_PATH/main.py'
 
