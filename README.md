@@ -5,6 +5,12 @@ Paccino is a script written in python. Works like a minimal terminal tool to man
 
 Use: Type your option with they number and nothing else :)
 
+DEPENDENCES:
+
+1. python3
+2. python-termcolor (install with: pip install termcolor)
+3. yay (for AUR packages)
+
 Installation:
 
 //Copy after the "$: "
