@@ -1,0 +1,32 @@
+PACCINO SCRIPT - BY: yrgo28
+GITHUB: https://github.com/yrgo28/paccino 
+
+PACMAN/YAY INTERFACE FOR BEGINNERS
+
+RECOMENDATIONS:
+
+*MINIMAL TERMINAL SIZE: 72-WIDTH; 64-HEIGHT
+
+HOW TO USE:
+
+1.Put number option for use (eg: [1] Install > press "1" and "enter" for install a package)
+2.For INSTALL/REMOVE/UPDATE/UPGRADE, type "pacman" or "yay" to choose a diferent manager (pacman is mostly used)
+
+ALL OPTIONS HAVE A NUMBER FOR EASY AND MINIMAL USE
+
+DO YOU WANT TO LEARN PACMAN/YAY SYNTAX?
+
+This is easy, don't worry. You can follow this syntax:
+
+<pacman/yay> -S <package_name> ///FOR INSTALL
+pacman -R <package_name> ///FOR REMOVE/UNINSTALL
+<pacman/yay> -S<y/u> ///"y" for only UPDATE; u for SYSTEM UPGRADE
+pacman -Ss <text> ///FOR SEARCH
+pacman -Qq ///FOR LIST INSTALLED PACKAGES
+
+NOTE: All commands need to be executed with "sudo" (eg: sudo pacman -Syu)
+
+THANK YOU FOR USE PACCINO SCRIPT <3
+
+/yrgo28
+
