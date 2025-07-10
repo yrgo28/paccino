@@ -1,7 +1,7 @@
 # Paccino
 pacman/yay terminal minimal interface
 
-Paccino is a script written in python. Works like a minimal terminal tool to manage pacman/yay baiscs functions. Made by a begginner, for begginners.
+Paccino is a script written in python. Works like a minimal terminal tool to manage pacman/yay basic functions. Made by a begginner, for begginners.
 
 Use: Type your option with they number and nothing else :)
 
