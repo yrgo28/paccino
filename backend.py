@@ -39,9 +39,13 @@ class Options:
             try_in = cons_try_in
             package = cons_to_install
             if(package and try_in not in prob_null):
-                if(try_in == "pacman" or try_in == "yay"):
+                if(try_in == "pacman"):
                     #print("THIS IS WORKING LOL") #DEBUG
                     comm = 'sudo ' + try_in + ' -S ' + package
+                    f.Interact()._exec(comm)
+                    break;
+                elif(try_in=="yay"):
+                    comm = try_in + ' -S ' + package
                     f.Interact()._exec(comm)
                     break;
                 else:
