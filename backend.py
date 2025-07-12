@@ -79,28 +79,20 @@ class Options:
         else:
             pass
 
-    def upto(self, arg: str):
-
-        if(arg=="date"):
-            uptox = " -Sy"
-        elif(arg=="grade"):
-            uptox = " -Su"
-
-        to_exec = 'sudo pacman'  + uptox
-        f.Interact()._exec(to_exec)
-        f.UI().separator("line")
+    def upgrade(self):
+        f.Interact()._exec("sudo pacman -Syu")
 
     def autoclean(self):
         f.Interact()._exec("sudo pacman -R $(pacman -Qtdq)")
 
     def cache_clean(self):
-            f.Interact()._exec("yes | sudo pacman -Scc; yay -Scc")
+            f.Interact()._exec("sudo pacman -Scc; yay -Scc")
 
     def list(self):
         f.UI().clear()
         f.Interact()._exec("pacman -Qq | column | less")
 
-    def advance(self):
+    def advanced(self):
         f.UI().separator("line")
         to_exec = input("Manual command: ")
         f.Interact()._exec(to_exec)
@@ -110,4 +102,20 @@ class Options:
         f.UI().clear()
         f.UI().separator("line")
         f.Interact()._exec("cat $PACCINO_PATH/help.pc")
+
+    def revert(self):
+        f.Interact().warning()
+        print('Type "list" to view available packages.')
+        print('Type "revert" to continue reverting')
+        menu_command = input('command: ')
+        if(menu_command=="list"):
+            f.UI().separator("line")
+            f.Interact()._exec("cd /var/cache/pacman/pkg && ls *.pkg.tar.zst && cd $HOME")
+            f.UI().separator("enter")
+
+        elif(menu_command=="revert"):
+            f.UI().separator("line")
+            cons = input("Package(s) to revert: ")
+            comm = 'sudo pacman -U /var/cache/pacman/pkg/' + cons
+            f.Interact()._exec(comm)
 

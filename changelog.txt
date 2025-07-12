@@ -1,0 +1,8 @@
+v 1.2 - 12/07/2025
+
+# For stability, Synchronize option are both now (Update & Upgrade)
+# Auto "yes" on Cache Clean was deleted
+# Revert Update/Install From File option added (4.More > 5.Revert Update/Install From File)
+# Secure mode added
+# Start menu added (autostart is store in "autostart.py")
+

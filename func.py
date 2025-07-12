@@ -10,7 +10,7 @@ class UI:
         pass
 
     def header(self, arg: str):
-        avail = ["main", "more", "sync", "install", "remove", "search"]
+        avail = ["main", "more", "start", "install", "remove", "search", "secure-mode"]
         num = terminal_size()
         if(num < 72):
             print("Terminal columns is minor than 72, graphics bugs are so possibly")
@@ -23,8 +23,8 @@ class UI:
             elif(arg=="more"):
                 print("Other options.")
                 pass
-            elif(arg=="sync"):
-                print("Synchronize options.")
+            elif(arg=="start"):
+                print("Start menu.")
                 pass
             elif(arg=="install"):
                 print("Install new package.")
@@ -35,6 +35,8 @@ class UI:
             elif(arg=="search"):
                 print("Search a package.")
                 pass
+            elif(arg=="secure-mode"):
+                print("Secure mode menu.")
         else:
             print("Error: Header not found.")
 
@@ -62,5 +64,9 @@ class Interact:
 
     def _exec(self, arg):
         os.system(arg)
+
+    def warning(self):
+        print("Take with your own risk!")
+        print("info: you can cancel this just pressing [enter] right now.")
 
 
