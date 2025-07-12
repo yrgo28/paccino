@@ -17,7 +17,7 @@ class Options:
         f.UI().separator("line")
         while True:
             cons_to_install = input('Package name: ')
-            if(cons_to_install not in prob_null):
+            if(len(cons_to_install) > 1 and cons_to_install not in prob_null):
                 for_all_good += 1
                 pass
             else:
@@ -59,7 +59,7 @@ class Options:
         f.UI().separator("line")
         cons = input("Package name: ")
         while True:
-            if(cons not in prob_null):
+            if(len(cons) > 1 and cons not in prob_null):
                 com = 'sudo pacman -R $(pacman -Qq | grep "' + cons + '")'
                 f.UI().separator("line")
                 f.Interact()._exec(com)
@@ -72,7 +72,7 @@ class Options:
         f.UI().header("search")
         f.UI().separator("line")
         cons = input("Search: ")
-        if(cons not in prob_null):
+        if(len(cons) > 1 and cons not in prob_null):
             f.UI().separator("line")
             to_exec = 'pacman -Ssq ' + cons + '| column'
             f.Interact()._exec(to_exec)
@@ -91,7 +91,7 @@ class Options:
         f.UI().separator("line")
 
     def autoclean(self):
-        f.Interact()._exec("yes | sudo pacman -R $(pacman -Qtdq)")
+        f.Interact()._exec("sudo pacman -R $(pacman -Qtdq)")
 
     def cache_clean(self):
             f.Interact()._exec("yes | sudo pacman -Scc; yay -Scc")

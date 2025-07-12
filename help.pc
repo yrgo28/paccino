@@ -1,30 +1,30 @@
 PACCINO SCRIPT - BY: yrgo28
 GITHUB: https://github.com/yrgo28/paccino 
 
-PACMAN/YAY INTERFACE FOR BEGINNERS
+PACMAN/YAY INTERFACE FOR BEGGINNERS
 
 RECOMENDATIONS:
 
-*MINIMAL TERMINAL SIZE: 72-WIDTH; 64-HEIGHT
+*MINIMAL TERMINAL SIZE: 72-WIDTH; 32-HEIGHT
 
 HOW TO USE:
 
 1.Put number option for use (eg: [1] Install > press "1" and "enter" for install a package)
 2.For INSTALL/REMOVE/UPDATE/UPGRADE, type "pacman" or "yay" to choose a diferent manager (pacman is mostly used)
 
-ALL OPTIONS HAVE A NUMBER FOR EASY AND MINIMAL USE
+ALL OPTIONS HAVE A NUMBER FOR EASY AND MINIMAL USAGE
 
-DO YOU WANT TO LEARN PACMAN/YAY SYNTAX?
+* Do you want to learn pacman/yay package manager command line syntax?
 
-This is easy, don't worry. You can follow this syntax:
+This is easy, don't worry. You can follow this:
 
-<pacman/yay> -S <package_name> ///FOR INSTALL
-pacman -R <package_name> ///FOR REMOVE/UNINSTALL
-<pacman/yay> -S<y/u> ///"y" for only UPDATE; u for SYSTEM UPGRADE
-pacman -Ss <text> ///FOR SEARCH
-pacman -Qq ///FOR LIST INSTALLED PACKAGES
+<pacman/yay> -S <package_name> ///FOR INSTALL eg: yay -S neofetch
+pacman -R <package_name> ///FOR REMOVE/UNINSTALL eg: pacman -R nano
+<pacman> -S<y/u> ///"y" for only UPDATE; u for SYSTEM UPGRADE; also can use both eg: pacman -Syu
+pacman -Ss <text> ///FOR SEARCH eg: pacman -Ss jre
+pacman -Qq ///FOR LIST INSTALLED PACKAGES 
 
-NOTE: All commands need to be executed with "sudo" (eg: sudo pacman -Syu)
+NOTE: All commands need to be executed with "sudo" (eg: sudo pacman -S git)
 
 THANK YOU FOR USE PACCINO SCRIPT <3
 

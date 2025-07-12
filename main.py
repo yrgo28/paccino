@@ -44,7 +44,7 @@ def menu_choose():
         main_menu()
 
 def sync_choose():
-    cons_avail = ["1", "2"]
+    cons_avail = ["1", "2", "3"]
     re_cons = input("Type your option: ")
     if(re_cons not in cons_avail):
         if(re_cons=="00"):
@@ -54,12 +54,18 @@ def sync_choose():
     else:
         cons = int(re_cons)
     while True:
-        if(cons >= 1 and cons <= 2):
+        if(cons >= 1 and cons <= 3):
             function.UI().separator("line")
             if(cons==1):
                 program.upto("date")
                 break;
             elif(cons==2):
+                program.upto("grade")
+                print(":: AFTER AN UPGRADE, DEVICE REBOOT IS HIGHLY RECOMMENDED ::")
+                func.UI().separator("enter")
+                break;
+            elif(cons==3):
+                program.upto("date")
                 program.upto("grade")
                 print(":: AFTER AN UPGRADE, DEVICE REBOOT IS HIGHLY RECOMMENDED ::")
                 func.UI().separator("enter")
@@ -76,6 +82,7 @@ def sync_menu():
     function.UI().separator("line")
     print(colored("[1] Databases", "green"))
     print(colored("[2] System Upgrade", "cyan"))
+    print(colored("[3] All", "blue"))
     function.UI().separator("enter")
     print("[00] Back")
     function.UI().separator("line")
@@ -100,6 +107,7 @@ def more_choose():
                 program.search()
             elif(choose==2):
                 program.list()
+                more_menu()
             elif(choose==3):
                 program.cache_clean()
             elif(choose==4):
