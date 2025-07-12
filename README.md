@@ -1,7 +1,7 @@
 # Paccino
-pacman/yay minimal termial interface
+pacman/yay minimal termial interface for Arch Linux and derivated distributions.
 
-Paccino is a script written in python. Works like a minimal terminal tool to manage pacman/yay basic functions. Made by a begginner, for begginners.
+Paccino is a project written in python. Works like a minimal terminal tool to manage pacman/yay basic functions. Made by a begginner, for begginners.
 
 Use: All options are enumerated. Type option number and press enter to execute it.
 
@@ -15,11 +15,11 @@ Use: All options are enumerated. Type option number and press enter to execute i
 
 - Getting files:
   
-1. Git: git clone https://github.com/yrgo28/paccino
+1. From github: git clone https://github.com/yrgo28/paccino
  
-2. From Release files. Download and extract it in a directory.
+2. From Release files: download and extract it in a directory.
    
-- Terminal indentation:
+- Making it a command-line shortcut:
 
 1. Edit your shell rc file: sudo (text-editor) (shell-rc-file)
 * e.g: sudo nano .bashrc
@@ -28,7 +28,7 @@ Use: All options are enumerated. Type option number and press enter to execute i
   * export PACCINO_PATH=directory-where-is-paccino-files
   - e.g: export PACCINO_PATH=$HOME/paccino
          
-  * alias paccino='$PACCINO_PATH/main.py'
+  * alias paccino='python3 $PACCINO_PATH/main.py'
 
 3. Save changes and restart your terminal.
 
