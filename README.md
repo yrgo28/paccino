@@ -3,7 +3,7 @@ pacman/yay minimal termial interface
 
 Paccino is a script written in python. Works like a minimal terminal tool to manage pacman/yay basic functions. Made by a begginner, for begginners.
 
-Use: All options are enumerated. Type option number and press enter to execute that option.
+Use: All options are enumerated. Type option number and press enter to execute it.
 
 # DEPENDENCES:
 
