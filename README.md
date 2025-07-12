@@ -1,19 +1,18 @@
 # Paccino
-pacman/yay terminal minimal interface
+pacman/yay minimal termial interface
 
 Paccino is a script written in python. Works like a minimal terminal tool to manage pacman/yay basic functions. Made by a begginner, for begginners.
 
-Use: Type your option with they number and nothing else :)
+Use: All options are enumerated. Type option number and press enter to execute that option.
 
-DEPENDENCES:
+# DEPENDENCES:
 
-1. python3
+1. python3 (sudo pacman -S python3)
 2. python-termcolor (install with: pip install termcolor)
 3. yay (for AUR packages)
 
-Installation:
-
-//Copy after the "$: "
+# Installation:
+- FROM GIT
 
 1. Clone this repository - $: git clone https://github.com/yrgo28/paccino
 
@@ -27,4 +26,18 @@ Installation:
 
 6. Type: SHELL: paccino
 
-7. Enjoy!
+- FROM RELEASE FILES (zip file):
+
+1. Download it and extract in a directory (unzip paccino.zip paccino/)
+
+2. Edit your shell rc file and add other configs, like installation from git:
+
+$: sudo nano(text editor) .bashrc(shrc file)
+shrc: export PACCINO_PATH=directory-you-have-extacted-paccino.zip
+shrc: alias paccino='$PACCINO_PATH/main.py'
+
+3. Save changes and restart your terminal
+
+4. Type: paccino, to open it
+
+Thanks for use Paccino Script <3
