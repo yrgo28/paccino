@@ -9,12 +9,16 @@ import autostart
 function = func
 program = backend.Options()
 
+def set_autostart(to):
+    comm = 'sudo echo "AUTOSTART_IS=' + str(to) + '" > $PACCINO_PATH/autostart.py'
+    func.Interact()._exec(comm)
+
 def start_options():
     avail = ["1", "2"]
     cons = input("Start as: ")
 
     if(cons=="99"):
-        print("Paccino need to be restarted.")
+        print(colored("info: restart required.", "magenta"))
         autostart = input('Autostart option: ')
 
         if(autostart in avail):
@@ -27,9 +31,7 @@ def start_options():
         else:
             start_menu()
         
-        comm = 'sudo echo "AUTOSTART_IS=' + str(autostart) + '" > $PACCINO_PATH/autostart.py'
-        func.Interact()._exec(comm)
-        
+        set_autostart(str(autostart)) 
 
     if(cons=="00"):
         func.UI().clear()
@@ -61,8 +63,7 @@ def start_menu():
     print(colored("[2] Normal Mode", "magenta"))
     print("info: More options, but take your own risk.")
     func.UI().separator("enter")
-    print(colored("[99] Set autostart", "green"))
-    func.UI().separator("enter")
+    print(colored("[99] Set Autostart Option", "green"))
     print("[00] Quit")
     func.UI().separator("line")
     start_options()
@@ -109,6 +110,11 @@ def more_choose():
     if(cons_input not in cons_avail):
         if(cons_input=="00"):
             main_menu()
+        elif(cons_input=="99"):
+            func.UI().separator("line")
+            set_autostart("None")
+            func.Interact().enter_to_continue()
+
         more_menu()
     else:
         choose = int(cons_input)
@@ -146,8 +152,9 @@ def more_menu():
     print(colored("[2] List Installed", "yellow"))
     print(colored("[3] Cache Clean", "red"))
     print(colored("[4] Remove Unused", "magenta"))
-    print(colored("[5] Revert Update/Install From File", "blue"))
+    print(colored("[5] Install From File", "blue"))
     function.UI().separator("enter")
+    print(colored("[99] Reset autostart", "green"))
     print("[00] Back")
     function.UI().separator("line")
     more_choose()
@@ -168,7 +175,7 @@ def main_menu():
 
 #PACCINO LAUNCH
 if(autostart.AUTOSTART_IS==1):
-    func.Interact()._exec("python3 #PACCINO_PATH/secure_mode.py")
+    func.Interact()._exec("python3 $PACCINO_PATH/secure_mode.py")
 elif(autostart.AUTOSTART_IS==2):
     main_menu()
 else:

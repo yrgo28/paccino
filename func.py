@@ -1,4 +1,6 @@
 import os
+import termcolor
+from termcolor import colored
 import welcome
 
 def terminal_size():
@@ -66,7 +68,7 @@ class Interact:
         os.system(arg)
 
     def warning(self):
-        print("Take with your own risk!")
-        print("info: you can cancel this just pressing [enter] right now.")
+        print(colored("Take with your own risk!", "red"))
+        print(colored("info: you can cancel this just typing [enter] right now.", "yellow"))
 
 

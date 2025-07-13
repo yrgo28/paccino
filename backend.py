@@ -1,4 +1,6 @@
 import os
+import termcolor
+from termcolor import colored
 import func
 
 prob_null = [None, ""]
@@ -92,12 +94,6 @@ class Options:
         f.UI().clear()
         f.Interact()._exec("pacman -Qq | column | less")
 
-    def advanced(self):
-        f.UI().separator("line")
-        to_exec = input("Manual command: ")
-        f.Interact()._exec(to_exec)
-        f.UI().separator("line")
-
     def help(self):
         f.UI().clear()
         f.UI().separator("line")
@@ -105,17 +101,27 @@ class Options:
 
     def revert(self):
         f.Interact().warning()
-        print('Type "list" to view available packages.')
-        print('Type "revert" to continue reverting')
+        print('Type' + colored(' "list" ', "blue") + 'to show cached pkg files.')
+        print('Type' +  colored(' "install" ', "yellow") + 'to continue.')
         menu_command = input('command: ')
         if(menu_command=="list"):
             f.UI().separator("line")
             f.Interact()._exec("cd /var/cache/pacman/pkg && ls *.pkg.tar.zst && cd $HOME")
             f.UI().separator("enter")
 
-        elif(menu_command=="revert"):
+        elif(menu_command=="install"):
             f.UI().separator("line")
-            cons = input("Package(s) to revert: ")
-            comm = 'sudo pacman -U /var/cache/pacman/pkg/' + cons
-            f.Interact()._exec(comm)
+            print(colored('note: type "cache" to automatically install cached pkg file.', "cyan"))
+            cons = input("path/to/file to install: ")
+            if(cons=="cache"):
+                cons_2 = input('Archive Package Name: ')
+                comm = 'sudo pacman -U /var/cache/pacman/pkg/' + cons_2
+            else:
+                comm = 'sudo pacman -U ' + cons
+
+            if(comm!=None):
+                f.UI().separator("line")
+                f.Interact()._exec(comm)
+            else:
+                pass
 

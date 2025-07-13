@@ -6,3 +6,15 @@ v 1.2 - 12/07/2025
 # Secure mode added
 # Start menu added (autostart is store in "autostart.py")
 
+v 1.2.1 - 13/07/2025
+
+# Fixed python's prompt when autostart is in Secure Mode
+# "Revert Update/Install From File" now is "Install From File" and have:
+
+- List cached pkg files
+- Install from compressed files (/path/to/file)
+- Install from cached (type package name, will be loaded automatically in /var/cache/pacman/pkg/)
+
+# Added "[99] Reset Autostart" option in both modes (Normal Mode: More > Reset Autostart)
+
+

@@ -16,6 +16,12 @@ def choose():
         ui.clear()
         exit()
 
+    if(cons=="99"):
+        comm = 'sudo echo "AUTOSTART_IS=None" > $PACCINO_PATH/autostart.py'
+        interact._exec(comm)
+        ui.separator("line")
+        interact.enter_to_continue()
+
     if(cons in avail and cons != None):
         choose = int(cons)
     else:
@@ -59,10 +65,11 @@ def menu():
     ui.clear()
     ui.header("secure-mode")
     ui.separator("line")
-    print(colored("[1] Synchronize & Install", "cyan"))
+    print(colored("[1] Synchronize & Install", "green"))
     print(colored("[2] Remove", "red"))
-    print(colored("[3] Synchronize", "yellow"))
+    print(colored("[3] Synchronize", "cyan"))
     ui.separator("enter")
+    print(colored("[99] Reset autostart", "blue"))
     print("[00] Quit")
     ui.separator("line")
     choose()
