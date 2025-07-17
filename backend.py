@@ -82,6 +82,7 @@ class Options:
             pass
 
     def upgrade(self):
+        f.UI().separator("line")
         f.Interact()._exec("sudo pacman -Syu")
 
     def autoclean(self):
@@ -124,4 +125,14 @@ class Options:
                 f.Interact()._exec(comm)
             else:
                 pass
+
+    def search_installed(self):
+        f_grep = input("Search in installed packages: ")
+
+        if(len(f_grep) > 2):
+            f.UI().separator("line")
+            comm = 'pacman -Qq | grep "' + f_grep + '" | column'
+            f.Interact()._exec(comm)
+        else:
+            pass
 

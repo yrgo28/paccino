@@ -66,7 +66,7 @@ def menu():
     ui.header("secure-mode")
     ui.separator("line")
     print(colored("[1] Synchronize & Install", "green"))
-    print(colored("[2] Remove", "red"))
+    print(colored("[2] Remove", "magenta"))
     print(colored("[3] Synchronize", "cyan"))
     ui.separator("enter")
     print(colored("[99] Reset autostart", "blue"))

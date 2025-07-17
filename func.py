@@ -12,7 +12,7 @@ class UI:
         pass
 
     def header(self, arg: str):
-        avail = ["main", "more", "start", "install", "remove", "search", "secure-mode"]
+        avail = ["main", "more", "start", "install", "remove", "search", "secure-mode", "no title"]
         num = terminal_size()
         if(num < 72):
             print("Terminal columns is minor than 72, graphics bugs are so possibly")
@@ -39,6 +39,8 @@ class UI:
                 pass
             elif(arg=="secure-mode"):
                 print("Secure mode menu.")
+            elif(arg=="no title"):
+                pass
         else:
             print("Error: Header not found.")
 

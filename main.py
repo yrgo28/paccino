@@ -15,11 +15,11 @@ def set_autostart(to):
 
 def start_options():
     avail = ["1", "2"]
-    cons = input("Start as: ")
+    cons = str(input("Start as: "))
 
     if(cons=="99"):
         print(colored("info: restart required.", "magenta"))
-        autostart = input('Autostart option: ')
+        autostart = input('Autostart: ')
 
         if(autostart in avail):
             autostart = int(autostart)
@@ -37,16 +37,12 @@ def start_options():
         func.UI().clear()
         exit()
 
-    if(cons in avail):
-        choose = int(cons)
-    else:
-        start_menu()
-
     while True:
-        if(choose >= 1 and choose <= 2):
-            if(choose==1):
+        if(cons == "1" or cons == "2"):
+            if(cons=="1"):
                 func.Interact()._exec("python3 $PACCINO_PATH/secure_mode.py")
-            elif(choose==2):
+                exit()
+            elif(cons=="2"):
                 main_menu()
         else:
             start_menu()
@@ -67,12 +63,6 @@ def start_menu():
     print("[00] Quit")
     func.UI().separator("line")
     start_options()
-
-
-def printthisis(arg: str):
-    print('this is ' + arg + ' option')
-    cons = input("press [enter] to continue...")
-    #USED FOR DEBUG
 
 def menu_choose():
     cons_avail = ["1", "2", "3", "4", "5"]
@@ -105,8 +95,9 @@ def menu_choose():
         main_menu()
 
 def more_choose():
-    cons_avail = ["1", "2", "3", "4", "5"]
+    cons_avail = ["1", "2", "3", "4", "5", "6", "7"]
     cons_input = input("Type your option: ")
+
     if(cons_input not in cons_avail):
         if(cons_input=="00"):
             main_menu()
@@ -116,25 +107,32 @@ def more_choose():
             func.Interact().enter_to_continue()
 
         more_menu()
+
     else:
         choose = int(cons_input)
     while True:
+
         if(choose<=0):
             main_menu()
 
-        if(choose >= 1 and choose <= 5):
+        if(choose >= 1 and choose <= 7):
             function.UI().separator("line")
             if(choose==1):
                 program.search()
             elif(choose==2):
+                program.search_installed()
+            elif(choose==3):
                 program.list()
                 more_menu()
-            elif(choose==3):
-                program.cache_clean()
             elif(choose==4):
-                program.autoclean()
+                program.cache_clean()
             elif(choose==5):
+                program.autoclean()
+            elif(choose==6):
                 program.revert()
+            elif(choose==7):
+                function.Interact()._exec("python3 $PACCINO_PATH/opt_manager.py")
+                exit()
             
             function.UI().separator("line")
             function.Interact().enter_to_continue()
@@ -148,11 +146,13 @@ def more_menu():
     function.UI().clear()
     function.UI().header("more")
     function.UI().separator("line")
-    print(colored("[1] Search", "green"))
-    print(colored("[2] List Installed", "yellow"))
-    print(colored("[3] Cache Clean", "red"))
-    print(colored("[4] Remove Unused", "magenta"))
-    print(colored("[5] Install From File", "blue"))
+    print(colored("[1] Search in Database", "green"))
+    print(colored("[2] Search in Packages", "cyan"))
+    print(colored("[3] List Packages", "yellow"))
+    print(colored("[4] Cache Clean", "magenta"))
+    print(colored("[5] Remove Unused", "magenta"))
+    print(colored("[6] Install From File", "blue"))
+    print(colored("[7] (EXPERIMENTAL) Install '.tar' File", "blue"))
     function.UI().separator("enter")
     print(colored("[99] Reset autostart", "green"))
     print("[00] Back")
@@ -164,18 +164,20 @@ def main_menu():
     function.UI().header("main")
     function.UI().separator("line")
     print(colored("[1] Install", "green"))
-    print(colored("[2] Remove", "red"))
-    print(colored("[3] Synchronize", "blue")) #sudo pacman -Syu
+    print(colored("[2] Remove", "magenta"))
+    print(colored("[3] Synchronize", "cyan")) #sudo pacman -Syu
     print(colored("[4] More", "yellow")) #SEARCH > LIST > CACHE CLEAN > AUTOREMOVE > REVERT UPDATE
-    print(colored("[5] Help", "magenta"))
+    print(colored("[5] Help", "yellow"))
     function.UI().separator("enter")
     print("[00] Quit")
     function.UI().separator("line")
     menu_choose()
 
 #PACCINO LAUNCH
+
 if(autostart.AUTOSTART_IS==1):
     func.Interact()._exec("python3 $PACCINO_PATH/secure_mode.py")
+    exit()
 elif(autostart.AUTOSTART_IS==2):
     main_menu()
 else:
