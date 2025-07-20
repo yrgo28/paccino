@@ -7,6 +7,11 @@ import func
 ui = func.UI()
 interact = func.Interact()
 
+def header_all(header: str):
+    ui.clear()
+    ui.header(header)
+    ui.separator("line")
+
 def choose():
     avail = ["1", "2", "3"]
     cons = input('Type your option: ')
@@ -17,7 +22,7 @@ def choose():
         exit()
 
     if(cons=="99"):
-        comm = 'sudo echo "AUTOSTART_IS=None" > $PACCINO_PATH/autostart.py'
+        comm = 'sudo echo "AUTOSTART_IS=None" >> $PACCINO_PATH/autostart.py'
         interact._exec(comm)
         ui.separator("line")
         interact.enter_to_continue()
@@ -30,6 +35,7 @@ def choose():
     while True:
         if(choose >= 1 and choose <= 3):
             if(choose==1):
+                header_all("install")
                 package = input('Package to install: ')
                 if(package != None and len(package) > 1):
                     ui.separator("line")
@@ -39,6 +45,7 @@ def choose():
                 else:
                     break;
             elif(choose==2):
+                header_all("remove")
                 package = input('Package to remove: ')
                 if(package != None and len(package) > 1):
                     ui.separator("line")
@@ -48,7 +55,7 @@ def choose():
                 else:
                     break;
             elif(choose==3):
-                ui.separator("line")
+                header_all("no title")
                 interact._exec("sudo pacman -Syu")
                 ui.separator("enter")
                 print("info: after an update, reboot is highly recommended.")
@@ -62,9 +69,7 @@ def choose():
 
 
 def menu():
-    ui.clear()
-    ui.header("secure-mode")
-    ui.separator("line")
+    header_all("secure-mode")
     print(colored("[1] Synchronize & Install", "green"))
     print(colored("[2] Remove", "magenta"))
     print(colored("[3] Synchronize", "cyan"))

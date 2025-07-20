@@ -47,6 +47,9 @@ class Options:
                     f.Interact()._exec(comm)
                     break;
                 elif(try_in=="yay"):
+                    f.UI().clear()
+                    f.UI().header("no title")
+                    f.UI().separator("line") # Cambio de la interfaz para yay. Para mantener la ventana lo mas limpia posible
                     comm = try_in + ' -S ' + package
                     f.Interact()._exec(comm)
                     break;
@@ -62,9 +65,8 @@ class Options:
         cons = input("Package name: ")
         while True:
             if(len(cons) > 1 and cons not in prob_null):
-                com = 'sudo pacman -R $(pacman -Qq | grep "' + cons + '")'
                 f.UI().separator("line")
-                f.Interact()._exec(com)
+                f.Interact()._exec(f"sudo pacman -R {cons}")
                 break;
             else:
                 break;
@@ -76,12 +78,13 @@ class Options:
         cons = input("Search: ")
         if(len(cons) > 1 and cons not in prob_null):
             f.UI().separator("line")
-            to_exec = 'pacman -Ssq ' + cons + '| column'
-            f.Interact()._exec(to_exec)
+            f.Interact()._exec(f"pacman -Ssq '{cons}' | column | column") #por que funciona con dos columns? xd
         else:
             pass
 
     def upgrade(self):
+        f.UI().clear()
+        f.UI().header("no title")
         f.UI().separator("line")
         f.Interact()._exec("sudo pacman -Syu")
 
@@ -127,6 +130,9 @@ class Options:
                 pass
 
     def search_installed(self):
+        f.UI().clear()
+        f.UI().header("search")
+        f.UI().separator("line")
         f_grep = input("Search in installed packages: ")
 
         if(len(f_grep) > 2):

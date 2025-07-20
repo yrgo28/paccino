@@ -17,4 +17,27 @@ v 1.2.1 - 13/07/2025
 
 # Added "[99] Reset Autostart" option in both modes (Normal Mode: More > Reset Autostart)
 
+v 1.3 - 17/07/2025
+
+# Install 'tar files' in /opt is added (experimental option)
+# Option colors has been changed
+# Option names are more descriptive
+# Search in Installed Packages has beed added
+
+-- Bugfixes --
+
+* Paccino crashes when pressing enter on start menu
+* Python prompt when exit from secure mode
+
+note: I wish the /opt manager would work, although that's outside of Paccino's context.
+
+v 1.4 - 20/07/2025
+
+# 'Install tar file' "removed" (for security)
+# Installing using 'yay' clear screen before continue
+# Removed Herobrine
+
+-- Bugfixes
+
+* No columns results in some search
 

@@ -10,7 +10,7 @@ function = func
 program = backend.Options()
 
 def set_autostart(to):
-    comm = 'sudo echo "AUTOSTART_IS=' + str(to) + '" > $PACCINO_PATH/autostart.py'
+    comm = 'sudo echo "AUTOSTART_IS=' + str(to) + '" >> $PACCINO_PATH/autostart.py'
     func.Interact()._exec(comm)
 
 def start_options():
@@ -115,7 +115,7 @@ def more_choose():
         if(choose<=0):
             main_menu()
 
-        if(choose >= 1 and choose <= 7):
+        if(choose >= 1 and choose <= 6):
             function.UI().separator("line")
             if(choose==1):
                 program.search()
@@ -152,7 +152,7 @@ def more_menu():
     print(colored("[4] Cache Clean", "magenta"))
     print(colored("[5] Remove Unused", "magenta"))
     print(colored("[6] Install From File", "blue"))
-    print(colored("[7] (EXPERIMENTAL) Install '.tar' File", "blue"))
+    #print(colored("[7] (EXPERIMENTAL) Install '.tar' File", "blue"))
     function.UI().separator("enter")
     print(colored("[99] Reset autostart", "green"))
     print("[00] Back")
